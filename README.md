@@ -14,9 +14,9 @@ the log for docker-study
 ## docker in docker
 - use docker in container
 
-[Dockerfile](https://github.com/qinya0/docker-study/blob/master/ubuntu_docker/Dockerfile)
+[Dockerfile](https://github.com/qinya0/docker-study/blob/master/Dockerfiles/docker-in-docker/Dockerfile)
 ```
   base images: ubuntu:14.04
   build:  docker build -t ubuntu:tag .
-  use: docker run -ti -v /var/run/docker.sock:/var/run/docker ubuntu:docker_base bash
+  use: docker run -ti -v /var/run/docker.sock:/var/run/docker ubuntu:tag bash
 ```
