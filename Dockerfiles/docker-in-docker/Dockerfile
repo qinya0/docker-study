@@ -6,4 +6,5 @@ RUN apt-get update \
   && echo "deb https://apt.dockerproject.org/repo ubuntu-trusty main" >> /etc/apt/sources.list \
   && apt-get update \
   && apt-get install -y docker-engine=1.13.0-0~ubuntu-trusty \
+  && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
