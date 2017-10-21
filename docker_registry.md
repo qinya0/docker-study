@@ -15,7 +15,7 @@
   docker push localhost:5000/hello-world
   docker rmi localhost:5000/hello-world
   docker pull localhost:5000/hello-world
-  # over
+  
 ```
 
 ## config docker 
@@ -30,13 +30,21 @@
   # finally restart docker
   sudo sertvice docker restart
  
-  # check the registry
+  # check the config
   sudo docker pull hello-world
   sudo docker tag hello-world 10.0.2.15:5000/hello-world
   sudo docker push 10.0.2.15:5000/hello-world
   sudo docker rmi 10.0.2.15:5000/hello-world
   sudo docker pull 10.0.2.15:5000/hello-world
-  # over
+
 ```
 
+## search images in registry
 
+```bash
+  # search all imagers
+  curl -X GET http://10.0.2.15:5000/v2/_catalog
+  # search all tags of image
+  curl -X GET http://10.0.2.15:5000/v2/hello-world/tags/list
+
+```
