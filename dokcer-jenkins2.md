@@ -1,8 +1,11 @@
 # jenkins2 in docker
 
-- 建议不要用tls，版本会改变
-- images: jenkins/jenkins2:2.60.2
+- ubuntu:16.04
+- docker 1.13.0
 
+- images建议不要用tls
+- images: jenkins/jenkins2:2.60.2
+- [jenkins插件](http://updates.jenkins-ci.org/download/plugins/)
 
 ```bash
   docker pull jenkins/jenkins2:2.60.2
