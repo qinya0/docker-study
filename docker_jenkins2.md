@@ -3,7 +3,7 @@
 - ubuntu:16.04
 - docker 1.13.0
 
-- images建议不要用tls
+- jenkins镜像不建议使用tls版本
 - images: jenkins/jenkins2:2.60.2
 - [jenkins插件](http://updates.jenkins-ci.org/download/plugins/)
 

@@ -18,7 +18,10 @@ the log for docker-study
 ```
   base images: ubuntu:14.04
   build:  docker build -t ubuntu:tag .
-  use: docker run -ti -v /var/run/docker.sock:/var/run/docker ubuntu:tag bash
+  use: docker run -d -ti \
+     -v /var/run/docker.sock:/var/run/docker \
+     --name qy-test-docker \
+     ubuntu:tag bash
 ```
 
 ## build private docker-registry
@@ -27,10 +30,19 @@ the log for docker-study
 
 ```bash
   mkdir /home/qy/registry
-  docker run -d -ti --restart always -v /home/qy/registry:/var/lib/registry -v /etc/localtime:/etc/localtime:ro -p 5000:5000 --name qy-registry registry:2
+  docker run -d -ti --restart always \
+     -v /home/qy/registry:/var/lib/registry \
+     -v /etc/localtime:/etc/localtime:ro \
+     -p 5000:5000 \
+     --name qy-registry \
+     registry:2
 ```
 
 ## build gitlab in docker
 
 - [docker_gitlab.md](https://github.com/qinya0/docker-study/blob/master/docker_gitlab.md)
 
+
+## build jenkins2 in docker
+
+- [docker_jenkins2.md](https://github.com/qinya0/docker-study/blob/master/docker_jenkins2.md)
