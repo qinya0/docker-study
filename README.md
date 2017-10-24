@@ -1,10 +1,11 @@
 # docker-study
 - create at 2017.10.06
+- os: ubuntu:16.04 4.4.0-31-generic 
+
 
 the log for docker-study
 
 ## install docker 
-- os: ubuntu:16.04
 
 [install-docker.sh](https://github.com/qinya0/docker-study/blob/master/install-docker.sh)
 ```
@@ -36,6 +37,8 @@ the log for docker-study
      -p 5000:5000 \
      --name qy-registry \
      registry:2
+  # create passwd
+  docker run --rm --entrypoint htpasswd registry:2 -Bbn qy-username qy-passwd
 ```
 
 ## build gitlab in docker

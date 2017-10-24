@@ -72,6 +72,8 @@
   service docker restart
   # you can use uaer and passwd to login registry
   docker login localhost:50001
+  # login config
+  cat ~/.docker/config.json
   docker push localhost:5001/hello-world
 ```
 
