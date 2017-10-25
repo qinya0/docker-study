@@ -7,7 +7,7 @@ the log for docker-study
 
 ## install docker 
 
-[install-docker.sh](https://github.com/qinya0/docker-study/blob/master/install-docker.sh)
+[install-docker.sh](https://github.com/qinya0/docker-study/blob/master/shell/install-docker.sh)
 ```
   use: bash install-docker.sh
 ```
@@ -27,7 +27,8 @@ the log for docker-study
 
 ## build private docker-registry
 
-- [docker_registry.md](https://github.com/qinya0/docker-study/blob/master/docker_registry.md)
+- 完成文档[docker_registry.md](https://github.com/qinya0/docker-study/blob/master/markdown/docker_registry.md)
+- 查看所有镜像和版本[get_images_registry.sh](https://github.com/qinya0/docker-study/blob/master/shell/get_images_registry.sh)
 
 ```bash
   mkdir /home/qy/registry
@@ -39,13 +40,15 @@ the log for docker-study
      registry:2
   # create passwd
   docker run --rm --entrypoint htpasswd registry:2 -Bbn qy-username qy-passwd
+  # get all images and it's tags
+  
 ```
 
 ## build gitlab in docker
 
-- [docker_gitlab.md](https://github.com/qinya0/docker-study/blob/master/docker_gitlab.md)
+- [docker_gitlab.md](https://github.com/qinya0/docker-study/blob/master/markdown/docker_gitlab.md)
 
 
 ## build jenkins2 in docker
 
-- [docker_jenkins2.md](https://github.com/qinya0/docker-study/blob/master/docker_jenkins2.md)
+- [docker_jenkins2.md](https://github.com/qinya0/docker-study/blob/master/markdown/docker_jenkins2.md)
