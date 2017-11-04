@@ -30,21 +30,24 @@ sed -i 's/^log_error/#log_error/g' /etc/mysql/my.cnf
 mysql -h 127.0.0.1 -u root -p qytest
 ```
 
-- use mysql in a another container
+- Dockerfiel for mysql-client
+
 ```Dockerfile
 FROM ubuntu:14.04
 
-# set ENV if you must use agent
+# set ENV if you need
 RUN apt-get update && apt-get install -y mysql-client \
     && apt-get -y autoremove && apt-get -y clean
 ```
 
-- build the images
+- build the images for mysql-client
+
 ```bash
 docker build -t ubuntu:mysql-client .
 ```
 
-- use container-mysql in a container
+- run mysql in a container to connect a mysql-container
+
 ```bash
 # run test container
 docker run -d -ti --link qy-mysql:mysql \
