@@ -52,3 +52,9 @@ the log for docker-study
 ## build jenkins2 in docker
 
 - [docker_jenkins2.md](https://github.com/qinya0/docker-study/blob/master/markdown/docker_jenkins2.md)
+
+## build images for mysql-client
+
+- [docker_mysql](https://github.com/qinya0/docker-study/blob/master/Dockerfiles/mysql-in-docker/Dockerfile)
+
+- [documents](https://github.com/qinya0/docker-study/blob/master/markdown/docker_mysql.md)
