@@ -48,3 +48,32 @@
   curl -X GET http://10.0.2.15:5000/v2/hello-world/tags/list
 
 ```
+
+## use passwd login registry
+
+```
+  # a file 
+  mkdir -p /home/qy/registry
+  cd /home/qy/registry
+  # create a passwd 
+  mkdir /home/qy/registry/auth
+  docker run --rm --entrypoint htpasswd registry:2 -Bbn qy-username qy-passwd > auth/htpasswd
+  ...... more passwd
+  # create container 
+  docker run -d -p 5001:5000 --restart always \
+    -e REGISTRY_STORAGE_REDIRECT_DISABLE=true -e REGISTRY_AUTH=htpasswd \
+    -e REGISTRY_AUTH_HTPASSWD_REALM="Registry Realm" \
+    -e REGISTRY_AUTH_HTPASSWD_PATH=/var/lib/registry/auth/htpasswd \ 
+    -v /home/qy/registry/:/var/lib/registry  \ 
+    --name qy-registry2 registry:2
+    
+  # add registry-url to docker's config
+  # vim /etc/default/docker: balabala
+  service docker restart
+  # you can use uaer and passwd to login registry
+  docker login localhost:50001
+  # login config
+  cat ~/.docker/config.json
+  docker push localhost:5001/hello-world
+```
+
