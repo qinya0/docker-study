@@ -5,6 +5,7 @@
 ```bash
     mkdir -p /home/qy/gitlab/redis
     docker run -d -v /home/qy/gitlab/redis:/var/lib/redis \
+        --restart always \
         --name qy-gitlab-redis  sameersbn/redis:latest
 ```
 
@@ -13,6 +14,7 @@
 ```bash
     mkdir -p /home/qy/gitlab/postgresql
     docker run -d -v /home/qy/gitlab/postgresql:/var/lib/postgresql \
+        --restart always \
         -e DB_NAME=gitlabhq_production -e DB_USER=gitlab -e DB_PASS=password  \
         -e DB_EXTENSION=pg_trgm \
         --name qy-gitlab-postgresql sameersbn/postgresql:9.6
@@ -26,6 +28,7 @@
     pwgen -Bsv1 64
     # 例： J33K3tn7kTw4JcRjcXjCHjzscHMgxdRFFCdJTTv7hwPxNfjhPnnr7cKFKK3fXbNM
     docker run -d -v /home/qy/gitlab/gitlab:/home/git/data \
+        --restart always \
         --link qy-gitlab-postgresql:postgresql --link qy-gitlab-redis:redisio \
         -p 10022:22 -p 10080:80 \
         -e GITLAB_HOST=10.0.2.15 -e GITLAB_PORT=10080 -e GITLAB_SSH_PORT=10022 \
