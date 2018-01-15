@@ -10,7 +10,8 @@ image_names=$(curl -s  ${base_url}/_catalog | awk -F'[[]' '{print $2}' |  awk -F
 for image_name in ${image_names[@]}
 do
    image_tags=$(curl -s  ${base_url}/${image_name}/tags/list  | awk -F'[[]' '{print $2}' |  awk -F'[]]' '{print $1}' | sed 's/\"//g' | sed 's/,/ /g')
-   echo "$image_name: ${#image_tags[@]}"
+   tag_num=$(echo ${image_tags[*]} |  sed 's/ /\n/g'  |wc -l)
+   echo "$image_name: ${tag_num}"
    for image_tag in ${image_tags[@]}
    do
       echo "  - $image_tag"
